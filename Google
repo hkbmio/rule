@@ -1,5 +1,6 @@
 #!name=Google搜索重定向
 #!desc=将cn域名定向至com
+#!category=工具
 
 [General]
 force-http-engine-hosts = %APPEND% *.google.cn
