@@ -6,7 +6,7 @@
 ^https://video-akpcw\.spotifycdn\.com/segments/v1/origins data-type=text data=" " status-code=200
 
 [Header Rewrite]
-http-request ^https://video-akpcw\.spotifycdn\.com/segments/v1/origins header-del 'path'
+http-request ^https://video-akpcw\.spotifycdn\.com/segments/v1/origins header-del Host
 
 [Rule]
 DOMAIN,api3.branch.io,REJECT,pre-matching
