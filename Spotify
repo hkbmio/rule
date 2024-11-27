@@ -2,6 +2,12 @@
 #!desc=去广告
 #!category=广告
 
+[Map Local]
+^https://video-akpcw\.spotifycdn\.com/segments/v1/origins data-type=text data=" " status-code=200
+
+[Header Rewrite]
+http-request ^https://video-akpcw\.spotifycdn\.com/segments/v1/origins header-del 'path'
+
 [Rule]
 DOMAIN,api3.branch.io,REJECT,pre-matching
 DOMAIN,cdn.branch.io,REJECT,pre-matching
@@ -15,4 +21,4 @@ spotify-json = type=http-request, pattern=^https:\/\/spclient\.wg\.spotify\.com\
 spotify-proto = type=http-response, pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js, requires-body=true, binary-body-mode=true, max-size=0, script-update-interval=0
 
 [MITM]
-hostname = %APPEND% spclient.wg.spotify.com
+hostname = %APPEND% spclient.wg.spotify.com,video-akpcw.spotifycdn.com
