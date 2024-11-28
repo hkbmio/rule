@@ -7,7 +7,7 @@ DOMAIN,dns.jd.com,REJECT,extended-matching,pre-matching
 URL-REGEX,"^http:\/\/\w{32}\.jddebug\.com\/diagnose\?",REJECT,extended-matching
 IP-CIDR,101.124.19.122/32,REJECT,no-resolve,pre-matching
 IP-CIDR6,2402:db40:5100:1011::5/128,REJECT,no-resolve,pre-matching
-DOMAIN,api.m.jd.com,REJECT,extended-matching,pre-matching
+DOMAIN,api.m.jd.com,REJECT,pre-matching
 
 [Map Local]
 ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(searchBoxWord|stationPullService|uniformRecommend[06]) data-type=text data="{}" status-code=200
