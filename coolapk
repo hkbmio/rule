@@ -8,5 +8,7 @@
 http-response-jq https:\/\/api\.coolapk\.com\/v6\/main\/indexV8 ".data |= map(select(.title != "广场" or .entities == null))"
 #帖子推广
 http-response-jq https:\/\/api\.coolapk\.com\/v6\/feed\/detail "delpaths([["data", "include_goods"],["data", "detailSponsorCard"]])"
+#开屏广告
+http-response-jq https:\/\/api\.coolapk\.com\/v6\/main\/init "delpaths([["data", "extraData"]])"
 [MITM]
 hostname = %APPEND% api.coolapk.com
