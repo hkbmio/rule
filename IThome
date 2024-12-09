@@ -3,5 +3,8 @@
 #!category=广告
 [Map Local]
 https:\/\/img\.ithome\.com\/zuihuimai\/static data-type=text data=""
+[Body Rewrite]
+#首页置顶
+http-response-jq https:\/\/napi\.ithome\.com\/api\/news\/indexv2 ".data.list |= map(select(.feedType != 10003 and .feedType != 10007))"
 [MITM]
 hostname = %APPEND% napi.ithome.com, api.zuihuimai.com, dat.ruanmei.com
