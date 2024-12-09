@@ -1,0 +1,16 @@
+#!name=百度贴吧
+#!desc=去广告
+#!category=广告
+[Rule]
+DOMAIN,afd.baidu.com,REJECT,extended-matching,pre-matching
+DOMAIN,mobads.baidu.com,REJECT,extended-matching,pre-matching
+DOMAIN,180.76.76.200,REJECT,extended-matching,pre-matching
+IP-CIDR,180.76.76.200/32,REJECT,no-resolve,pre-matching
+
+[Map Local]
+^https:\/\/tiebac\.baidu\.com\/c\/f\/search\/discover data-type=text data="{}" status-code=200
+^https:\/\/tiebac\.baidu\.com\/c\/f\/forum\/forumGuide data-type=text data="{}" status-code=200
+
+
+[MITM]
+hostname = %APPEND% tiebac.baidu.com, tieba.baidu.com
