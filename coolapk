@@ -4,13 +4,9 @@
 
 [Map Local]
 ^https:\/\/api\.coolapk\.com\/v6\/search\?.*type=hotSearch data-type=text data="{}" status-code=200
+[Body Rewrite]
+http-response-jq https:\/\/api\.coolapk\.com\/v6\/main\/indexV8 ".data |= map(select(.title != "广场" or .entities == null))"
 
-[Script]
-评论广告 = type=http-response, pattern=^https:\/\/api\.coolapk\.com\/v6\/feed\/(detail|replyList)\?, script-path=https://raw.githubusercontent.com/hkbmio/rule/refs/heads/main/js/coolapk, requires-body=true
-
-开屏广告 = type=http-response, pattern=^https:\/\/api\.coolapk\.com\/v6\/main\/(dataList|init), script-path=https://raw.githubusercontent.com/hkbmio/rule/refs/heads/main/js/coolapk, requires-body=true
-
-推广广告 = type=http-response, pattern=^https:\/\/api\.coolapk\.com\/v6\/page\/dataList\?, script-path=https://raw.githubusercontent.com/hkbmio/rule/refs/heads/main/js/coolapk, requires-body=true
 
 [MITM]
 hostname = %APPEND% api.coolapk.com
