@@ -1,0 +1,7 @@
+#!name=IT之家去广告
+#!desc=去广告
+#!category=广告
+[Map Local]
+https:\/\/img\.ithome\.com\/zuihuimai\/static data-type=text data=""
+[MITM]
+hostname = %APPEND% napi.ithome.com, api.zuihuimai.com, dat.ruanmei.com
