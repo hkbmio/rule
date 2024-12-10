@@ -1,5 +1,48 @@
 #!name=哔哩哔哩
 #!desc=去广告
 #!category=广告
+[Rule]
+DOMAIN-WILDCARD,*pcdn*.biliapi.net,REJECT,pre-matching
+[Map Local]
+# 热搜
+https:\/\/app\.bilibili\.com\/x\/v2\/search\/square data-type=text data=""
+# 开屏广告
+https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list data-type=text data=""
+# 移除右上角活动入口
+^https:\/\/app\.bilibili\.com\/x\/resource\/top\/activity\? data-type=text data="{ "code": -404, "message": "啥都木有", "ttl": 1, "data": null }" header="Content-Type: text/json" status-code=200
+# 流量卡推荐
+^https:\/\/(?:app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.view\.v1\.View\/TFInfo$ data-type=text data="{}" status-code=200
+# 满意度调研
+^https:\/\/api\.bilibili\.com\/x\/v2\/dm\/qoe\/show\? data-type=text data="{}" status-code=200
+
+# 大会员广告
+^https:\/\/api\.bilibili\.com\/x\/vip\/ads\/materials\? data-type=text data="{}" status-code=200
+
+# 直播广告
+^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? data-type=text data="{}" status-code=200
+
+# IP请求、地理位置请求 //api.bilibili.com
+^https:\/\/app\.bilibili\.com\/x\/resource\/ip data-type=text data="{}" status-code=200
+
+^https:\/\/api\.bilibili\.com\/x\/web-interface\/zone\?jsonp data-type=text data="{}" status-code=200
+[URL Rewrite]
+# 移除直播间链接跟踪参数
+(^https:\/\/live\.bilibili\.com\/\d+)(\/?\?.*) $1 302
+# 移除视频链接跟踪参数
+(^https:\/\/(?:www|m)\.bilibili\.com\/video\/(?:BV\w{10}|av\d{9}))(\/?\?.*) $1 302
+
+[Body Rewrite]
+# 首页精简
+http-response-jq https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2 ".data |= (.tab |= del(.[] | select(.id | IN(39, 41, 136117))) |   .bottom |= del(.[] | select(.name == "发布" or .id == 2757)))"
+# 我的页面精简
+http-response-jq https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine ".data.sections_v2 |= map(select(.title as $title | ["创作中心", "推荐服务"] | index($title) == null))"
+# 首页轮播
+http-response-jq https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index ".data.items |= map(   select(.ad_info != true) | del(.ad_info) | if .banner_item != null then empty else . end)"
+
+
+
+
+
+
 [MITM]
 hostname = %APPEND% ap?.bilibili.com, grpc.biliapi.net, www.bilibili.com, m.bilibili.com, *live.bilibili.com
