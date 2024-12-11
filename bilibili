@@ -6,7 +6,7 @@
 DOMAIN,dns.google,REJECT,pre-matching
 #开屏广告
 URL-REGEX,^https:\/\/app\.bilibili\.com\/bilibili\.app\.resource\.v1\.Module\/List$,REJECT 
-URL-REGEX,^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/show\$,REJECT
+URL-REGEX,^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/show\?,REJECT
 [Map Local]
 # 热搜
 https:\/\/app\.bilibili\.com\/x\/v2\/search\/square data-type=text data=""
