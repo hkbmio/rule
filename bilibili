@@ -6,8 +6,6 @@
 DOMAIN,dns.google,REJECT,pre-matching
 #开屏推广
 URL-REGEX,^https:\/\/app\.bilibili\.com\/bilibili\.app\.resource\.v1\.Module\/List$,REJECT 
-#开屏广告
-URL-REGEX,^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.resource\.v1\.Module\/List$,REJECT
 
 [Map Local]
 # 热搜
