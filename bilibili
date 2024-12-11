@@ -6,6 +6,8 @@
 DOMAIN,dns.google,REJECT,pre-matching
 #开屏推广
 URL-REGEX,^https:\/\/app\.bilibili\.com\/bilibili\.app\.resource\.v1\.Module\/List$,REJECT 
+#开屏广告
+URL-REGEX,^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.resource\.v1\.Module\/List$,REJECT
 
 [Map Local]
 # 热搜
@@ -24,7 +26,7 @@ http-response-jq https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2 ".data
 # 我的页面精简
 http-response-jq https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine$ ".data.sections_v2 |= map(select(.title as $title | ["创作中心", "推荐服务"] | index($title) == null) | .items |= map(select(.id != 964)))"
 # 首页轮播
-http-response-jq https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index$ ".data.items |= map(   select(.ad_info != true) | del(.ad_info) | if .banner_item != null then empty else . end)"
+http-response-jq https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index ".data.items |= map(   select(.ad_info != true) | del(.ad_info) | if .banner_item != null then empty else . end)"
 
 
 
@@ -32,4 +34,4 @@ http-response-jq https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index$ ".data.items 
 
 
 [MITM]
-hostname = %APPEND% app.bilibili.com
+hostname = %APPEND% app.bilibili.com,grpc.biliapi.net
