@@ -1,10 +1,16 @@
 #!name=IT之家去广告
 #!desc=去广告
 #!category=广告
-[Map Local]
-https:\/\/img\.ithome\.com\/zuihuimai\/static data-type=text data=""
+
+[Rule]
+#IP
+DOMAIN,resolve.umeng.com,REJECT,pre-matching
+#首页红包广告
+DOMAIN,dat.ruanmei.com,REJECT,pre-matching
+
 [Body Rewrite]
-#首页置顶
-http-response-jq https:\/\/napi\.ithome\.com\/api\/news\/indexv2 ".data.list |= map(select(.feedType != 10003 and .feedType != 10007))"
+#首页广告和置顶
+http-response-jq https:\/\/napi\.ithome\.com\/api\/news\/indexv2 ".data.list|= del(.[] | select((.feedType !=10002) and (.feedType==10003 or (.feedContent.smallTags | length == 0) or (.feedContent.smallTags[0].text | contains("广告")))))"
+
 [MITM]
-hostname = %APPEND% napi.ithome.com, api.zuihuimai.com, dat.ruanmei.com
+hostname = %APPEND% napi.ithome.com
