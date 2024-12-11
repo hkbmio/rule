@@ -4,15 +4,14 @@
 [Rule]
 #Dns查询
 DOMAIN,dns.google,REJECT,pre-matching
-#开屏推广
+#开屏广告
 URL-REGEX,^https:\/\/app\.bilibili\.com\/bilibili\.app\.resource\.v1\.Module\/List$,REJECT 
-
+URL-REGEX,^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/show\$,REJECT
 [Map Local]
 # 热搜
 https:\/\/app\.bilibili\.com\/x\/v2\/search\/square data-type=text data=""
 # 开屏广告
 https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list data-type=text data=""
-https:\/\/grpc\.biliapi\.net\/bilibili\.app\.resource\.v1\.Module\/List data-type=text data=""
 
 # IP请求、地理位置请求
 ^https:\/\/app\.bilibili\.com\/x\/resource\/ip data-type=text data="{}" status-code=200
@@ -33,4 +32,4 @@ http-response-jq https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index ".data.items |
 
 
 [MITM]
-hostname = %APPEND% app.bilibili.com,grpc.biliapi.net
+hostname = %APPEND% app.bilibili.com
