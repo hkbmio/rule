@@ -1,0 +1,13 @@
+#!name=12306去广告
+#!desc=去广告
+#!category=广告
+
+
+[Rule]
+DOMAIN,ad.12306.cn,DIRECT,extended-matching
+
+
+
+
+[MITM]
+hostname = %APPEND% mobile.12306.cn
