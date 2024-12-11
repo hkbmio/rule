@@ -22,7 +22,7 @@ https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list data-type=text data=""
 # 首页精简
 http-response-jq https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2 ".data |= (.tab |= del(.[] | select(.id | IN(39, 41, 136117))) |   .bottom |= del(.[] | select(.name == "发布" or .id == 2757)))"
 # 我的页面精简
-http-response-jq https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine$ ".data.sections_v2 |= map(select(.title as $title | ["创作中心", "推荐服务"] | index($title) == null) | .items |= map(select(.id != 964)))"
+http-response-jq https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine ".data.sections_v2 |= map(select(.title as $title | ["创作中心", "推荐服务"] | index($title) == null) | .items |= map(select(.id != 964)))"
 # 首页轮播
 http-response-jq https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index ".data.items |= map(   select(.ad_info != true) | del(.ad_info) | if .banner_item != null then empty else . end)"
 
