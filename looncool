@@ -1,8 +1,0 @@
-#!name=酷安
-[Argument]
-arg1 = switch,false,tag=热搜,desc=true
-
-[Rewrite]
-https:\/\/api\.coolapk\.com\/v6\/search? response-body-json-jq '(   switch($arg1) {     "false": .data |= map(select(.entityTemplate != "hotSearch"));     "true": .data |= map(select(.entityTemplate == "hotSearch"));     default: .   } )'
-[MITM]
-hostname = api.coolapk.com
