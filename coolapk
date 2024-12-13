@@ -5,9 +5,6 @@
 #数字联盟
 DOMAIN-SUFFIX,shuzilm.cn,REJECT,pre-matching
 #[Map Local]
-#热搜
-^https:\/\/api\.coolapk\.com\/v6\/search\?.*type=hotSearch data-type=text data="{}" status-code=200
-[Body Rewrite]
 # 首页推荐
 http-response-jq https:\/\/api\.coolapk\.com\/v6\/main\/indexV8 ".data |= del(.[] | select(.lastupdate == 1734033188))"
 # 帖子推广
