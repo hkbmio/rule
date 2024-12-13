@@ -12,4 +12,4 @@ http-response-jq https:\/\/api\.coolapk\.com\/v6\/feed\/detail ".data |= (del(.i
 # 开屏广告
 http-response-jq https:\/\/api\.coolapk\.com\/v6\/main\/init ".data |= del(.extraData)"
 [MITM]
-hostname = %APPEND% api.coolapk.com
+hostname = api.coolapk.com
