@@ -13,6 +13,6 @@ https:\/\/api\.coolapk\.com\/v6\/feed\/detail response-body-json-jq '.data |= (d
 # 开屏广告
 https:\/\/api\.coolapk\.com\/v6\/main\/init response-body-json-jq '.data |= del(.extraData)'
 # 热搜
-https:\/\/api\.coolapk\.com\/v6\/search? response-body-json-jq '(if $arg1 == "true" then .data |= map(select(.entityTemplate != "hotSearch")) else . end)'
+#https:\/\/api\.coolapk\.com\/v6\/search? response-body-json-jq '(if $arg1 == "true" then .data |= map(select(.entityTemplate != "hotSearch")) else . end)'
 [MITM]
 hostname = api.coolapk.com
