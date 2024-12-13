@@ -6,7 +6,7 @@
 DOMAIN-SUFFIX,shuzilm.cn,REJECT,pre-matching
 [Body Rewrite]
 #热搜
-http-response-jq https:\/\/api\.coolapk\.com\/v6\/search? 'def filterEntityTemplate: .entityTemplate != "hotSearch" and .entityTemplate != "searchHotListCard"; .data |= map(select(filterEntityTemplate))'
+http-response-jq https:\/\/api\.coolapk\.com\/v6\/search? 'del(.data[] | select(.entityTemplate == "hotSearch" or .entityTemplate == "searchHotListCard"))'
 #我的页面常见问题
 http-response-jq https:\/\/api\.coolapk\.com\/v6\/account\/loadConfig? "del(.data[] | select(.entityId == 14809))"
 # 帖子推广
