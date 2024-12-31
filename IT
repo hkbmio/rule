@@ -1,0 +1,17 @@
+#!name = IT之家
+#!desc = 去广告
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/IThome.png
+#!tag = 去广告
+
+[Rule]
+
+DOMAIN,dat.ruanmei.com,REJECT
+
+DOMAIN,resolve.umeng.com,REJECT
+
+[Rewrite]
+
+https:\/\/napi\.ithome\.com\/api\/news\/indexv2 response-body-json-jq '.data.list|= del(.[] | select((.feedType !=10002) and (.feedType==10003 or (.feedContent.smallTags | length == 0) or (.feedContent.smallTags[0].text | contains("广告")))))'
+
+[Mitm]
+hostname = napi.ithome.com
