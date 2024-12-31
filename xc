@@ -1,5 +1,5 @@
 #!name= 携程
-#!desc：去广告
+#!desc=去广告
 #!icon= https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Ctrip.png
 #!tag = 去广告,Youtube
 
