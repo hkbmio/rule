@@ -1,0 +1,23 @@
+#!name = 酷安
+#!desc = 去广告
+
+[Rule]
+
+URL-REGEX,"^http:\/\/idfa2\.shuzilm\.cn\/qi\?",REJECT-ARRAY
+
+URL-REGEX,"^http:\/\/ipv6\.shuzilm\.cn\/ip\?pkg=com\.coolapk\.app",REJECT-ARRAY
+
+URL-REGEX,"^http:\/\/ipv4\.shuzilm\.cn\/ip\?pkg=com\.coolapk\.app",REJECT-ARRAY
+
+[Rewrite]
+
+https:\/\/api\.coolapk\.com\/v6\/search? response-body-json-jq 'del(.data[] | select(.entityTemplate == "hotSearch" or .entityTemplate == "searchHotListCard"))'
+
+https:\/\/api\.coolapk\.com\/v6\/main\/init response-body-json-jq 'del(.extraData)'
+
+https:\/\/api\.coolapk\.com\/v6\/feed\/detail response-body-json-jq 'del(.data.include_goods, .data.detailSponsorCard)'
+
+https:\/\/api\.coolapk\.com\/v6\/main\/indexV8 response-body-json-jq '.data |=map(if has("entities") then .entities |= del(.[] | select(.title == "推荐官")) else . end    | select(.lastupdate != 1733907830))'
+
+[Mitm]
+hostname = api.coolapk.com
