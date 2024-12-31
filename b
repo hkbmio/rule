@@ -1,4 +1,5 @@
 #!name = 哔哩哔哩
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Bilibili.png
 #!desc = 去广告
 
 [Rule]
@@ -10,11 +11,11 @@ URL-REGEX,"^https:\/\/app\.bilibili\.com\/bilibili\.app\.resource\.v1\.Module\/L
 URL-REGEX,"^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/show\?",REJECT
 
 [Rewrite]
-https:\/\/app\.bilibili\.com\/x\/v2\/search\/square mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/app\.bilibili\.com\/x\/v2\/search\/square mock-response-body data-type=text data="{}" status-code=200
 ^https:\/\/app\.bilibili\.com\/x\/resource\/patch\/tab\? mock-response-body data-type=text data="{}" status-code=200
-splash\/list mock-response-body data-type=text data="{}" status-code=200
 ^https:\/\/app\.bilibili\.com\/x\/resource\/ip mock-response-body data-type=text data="{}" status-code=200
 ^https:\/\/api\.bilibili\.com\/x\/web-interface\/zone\?jsonp mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list mock-response-body data-type=text data="{}" status-code=200
 
 https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2 response-body-json-jq '.data |= (.tab |= del(.[] | select(.id | IN(3371, 39, 41, 136117)))| .bottom |= del(.[] | select(.name == "发布" or .id == 2757)))'
 https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index response-body-json-jq '.data.items |= map( select(.ad_info != true) | del(.ad_info) | if .banner_item != null then empty else . end)'
