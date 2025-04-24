@@ -2,27 +2,17 @@
   "version": 3,
   "rules": [
     {
-      "domain": [
-        "api.smoot.apple.com",
-        "captive.apple.com",
-        "xp.apple.com",
-        "configuration.apple.com",
-        "guzzoni.apple.com",
-        "smp-device-content.apple.com",
-        "aod.itunes.apple.com",
-        "mesu.apple.com",
-        "api.smoot.apple.cn",
-        "gs-loc.apple.com",
-        "mvod.itunes.apple.com",
-        "streamingaudio.itunes.apple.com"
-      ],
-      "domain_suffix": [
-        "ess.apple.com",
-        "push-apple.com.akadns.net",
-        "push.apple.com",
-        "lcdn-locator.apple.com",
-        "lcdn-registration.apple.com",
-        "ls.apple.com"
+      "ip_cidr": [
+        "17.0.0.0/8",
+        "144.178.0.0/19",
+        "63.92.224.0/19",
+        "65.199.22.0/23",
+        "144.178.48.0/20",
+        "144.178.36.0/22",
+        "192.35.50.0/24",
+        "198.183.17.0/24",
+        "205.180.175.0/24,
+        "139.178.128.0/18"
       ]
     }
   ]
