@@ -1,0 +1,28 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "domain": [
+        "adstats.tencentmusic.com",
+        "ad.tencentmusic.com",
+        "adcdn.tencentmusic.com",
+        "adcdn6.tencentmusic.com,REJECT,
+        "adexpo.tencentmusic.com,REJECT,extended-matching,pre-matching
+        "adclick.tencentmusic.com,REJECT,extended-matching,pre-matching
+        "otheve.beacon.qq.com,REJECT,extended-matching,pre-matching
+        "monitor.music.qq.com,REJECT,extended-matching,pre-matching
+        "stat.y.qq.com,REJECT,extended-matching,pre-matching
+        "tmead.y.qq.com,REJECT,extended-matching,pre-matching
+        "tmeadquic.y.qq.com,REJECT,extended-matching,pre-matching
+        "oth.str.mdt.qq.com,REJECT,extended-matching,pre-matching
+        "h.trace.qq.com,REJECT,extended-matching,pre-matching
+        "sdk.e.qq.com,REJECT,extended-matching,pre-matching
+        "p.l.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN,us.l.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN,tangram.e.qq.com,REJECT,extended-matching,pre-matching
+        tmeadbak.y.qq.com,REJECT,extended-matching,pre-matching
+        "imtmp.net,REJECT,extended-matching,pre-matching
+      ]
+    }
+  ]
+}
