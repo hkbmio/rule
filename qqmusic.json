@@ -3,6 +3,7 @@
   "rules": [
     {
       "domain": [
+        "pgdt.gtimg.cn",
         "adstats.tencentmusic.com",
         "ad.tencentmusic.com",
         "adcdn.tencentmusic.com",
