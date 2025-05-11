@@ -6,22 +6,22 @@
         "adstats.tencentmusic.com",
         "ad.tencentmusic.com",
         "adcdn.tencentmusic.com",
-        "adcdn6.tencentmusic.com,REJECT,
-        "adexpo.tencentmusic.com,REJECT,extended-matching,pre-matching
-        "adclick.tencentmusic.com,REJECT,extended-matching,pre-matching
-        "otheve.beacon.qq.com,REJECT,extended-matching,pre-matching
-        "monitor.music.qq.com,REJECT,extended-matching,pre-matching
-        "stat.y.qq.com,REJECT,extended-matching,pre-matching
-        "tmead.y.qq.com,REJECT,extended-matching,pre-matching
-        "tmeadquic.y.qq.com,REJECT,extended-matching,pre-matching
-        "oth.str.mdt.qq.com,REJECT,extended-matching,pre-matching
-        "h.trace.qq.com,REJECT,extended-matching,pre-matching
-        "sdk.e.qq.com,REJECT,extended-matching,pre-matching
-        "p.l.qq.com,REJECT,extended-matching,pre-matching
-DOMAIN,us.l.qq.com,REJECT,extended-matching,pre-matching
-DOMAIN,tangram.e.qq.com,REJECT,extended-matching,pre-matching
-        tmeadbak.y.qq.com,REJECT,extended-matching,pre-matching
-        "imtmp.net,REJECT,extended-matching,pre-matching
+        "adcdn6.tencentmusic.com",
+        "adexpo.tencentmusic.com",
+        "adclick.tencentmusic.com",
+        "otheve.beacon.qq.com",
+        "monitor.music.qq.com",
+        "stat.y.qq.com",
+        "tmead.y.qq.com",
+        "tmeadquic.y.qq.com",
+        "oth.str.mdt.qq.com",
+        "h.trace.qq.com",
+        "sdk.e.qq.com",
+        "p.l.qq.com",
+        "us.l.qq.com",
+        "tangram.e.qq.com",
+        "tmeadbak.y.qq.com",
+        "imtmp.net"
       ]
     }
   ]
